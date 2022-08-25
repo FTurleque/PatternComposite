@@ -1,4 +1,6 @@
-﻿namespace Ex_Expression.Class.Pattern.Composite
+﻿using System.Text;
+
+namespace Ex_Expression.Class.Pattern.Composite
 {
     public class Addition : Binaire
     {
@@ -18,8 +20,69 @@
 
         public override string Formate()
         {
-            Result = Evalue();
-            return op1.Formate() + "+" + op2.Formate();
+            return Operation() + "=" + Evalue();
+        }
+
+        public override string Operation()
+        {
+            StringBuilder op = new StringBuilder();
+
+            if (op1 is Binaire)
+            {
+                op.Append("(");
+                op.Append(op1.Operation());
+                op.Append(")");
+            }
+            else
+            {
+                op.Append(op1.Operation());
+            }
+
+            op.Append('+');
+
+            if (op2 is Binaire)
+            {
+                op.Append("(");
+                op.Append(op2.Operation());
+                op.Append(")");
+            }
+            else
+            {
+                op.Append(op2.Operation());
+            }
+
+            return op.ToString();
+        }
+
+        public override string Formate2()
+        {
+            StringBuilder op = new StringBuilder();
+
+            int resultOp1 = op1.Evalue();
+            int numberDigit = resultOp1.ToString().Length;
+
+            if (numberDigit == op1.Formate2().Length)
+            {
+                op.Append(op1.Operation());
+            }
+            else
+            {
+                op.Append(op1.Operation().Substring(0, op1.Operation().Length - numberDigit - 1));
+            }
+            op.Append('+');
+            if (numberDigit == op2.Operation().Length)
+            {
+                op.Append(op2.Operation());
+            }
+            else
+            {
+                op.Append(op2.Operation().Substring(0, op2.Operation().Length - numberDigit - 1));
+            }
+
+            op.Append('=');
+            op.Append(Evalue());
+
+            return op.ToString();
         }
     }
 }

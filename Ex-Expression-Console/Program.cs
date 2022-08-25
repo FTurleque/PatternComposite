@@ -27,3 +27,4 @@ int resultat6 = exp6.Evalue();
 Console.WriteLine(resultat6); // 132
 
 Console.WriteLine(exp6.Formate());
+Console.WriteLine(exp6.Formate2());

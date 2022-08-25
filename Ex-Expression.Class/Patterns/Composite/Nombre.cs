@@ -21,7 +21,17 @@
 
         public override string Formate()
         {
+            return Operation();
+        }
+
+        public override string Operation()
+        {
             return ToString();
+        }
+
+        public override string Formate2()
+        {
+            return Operation();
         }
     }
 }
