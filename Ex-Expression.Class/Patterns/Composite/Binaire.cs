@@ -1,4 +1,4 @@
-﻿namespace Ex_Expression.Class
+﻿namespace Ex_Expression.Class.Pattern.Composite
 {
     public abstract class Binaire : Expression
     {
@@ -6,7 +6,9 @@
 
         public Expression op1 { get; set; }
 
-        protected Binaire(Expression op2, Expression op1)
+/*        public int Result { get; set; }
+*/
+        protected Binaire(Expression op1, Expression op2)
         {
             this.op2 = op2;
             this.op1 = op1;

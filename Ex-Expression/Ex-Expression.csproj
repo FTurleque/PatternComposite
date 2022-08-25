@@ -9,4 +9,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Ex-Expression.Class\Ex-Expression.Class.csproj" />
+  </ItemGroup>
+
 </Project>

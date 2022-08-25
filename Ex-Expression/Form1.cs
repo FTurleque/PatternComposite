@@ -1,4 +1,4 @@
-using Ex_Expression.Class;
+using Ex_Expression.Class.Pattern.Composite;
 
 namespace Ex_Expression
 {
@@ -59,13 +59,14 @@ namespace Ex_Expression
                 exps.Add(new Nombre(int.Parse(item)));
             }
             int result = exps[0].Evalue();
-            for (int i = 1; i < exps.Count; ++i)
+
+            for (int i = 0; i < operatorList.Count; ++i)
             {
                 Nombre nb = new Nombre(result);
-                result = GetOperationType(operatorList[i - 1], nb, exps[i]);
+                result = GetOperationType(operatorList[i], nb, exps[i + 1]);
             }
 
-            txtBoxDisplay.Text = result.ToString();
+            txtBoxDisplay.Text += '=' + result.ToString();
             newCalcul = true;
         }
 

@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Ex-Expression.Class\Ex-Expression.Class.csproj" />
     <ProjectReference Include="..\Ex-Expression\Ex-Expression.csproj" />
   </ItemGroup>
 
